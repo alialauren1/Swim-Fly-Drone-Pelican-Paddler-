@@ -83,7 +83,7 @@ def task2_get(shares):
 
     moe2 = motordriver (pyb.Pin.board.PB10, pyb.Pin.board.PB4, pyb.Pin.board.PB5, 3) # !!!!!!!!!!!!!! Had to update this 
     
-    setpoint_p = 14.3 # Setpoint in [psi]
+    setpoint_p = 14.9 # Setpoint in [psi]
     sensor_obj = PressureSensor(setpoint_p,0,0) # Conversion in PressureSensor class from [psi] to counts
     setpoint_raw = sensor_obj.PtoRawP(setpoint_p) # Setpoint in [counts]
     
@@ -101,36 +101,44 @@ def task2_get(shares):
     counter_s3 = 0
     final_counter = 0
     key = 0
+    safety_counter = 0
     
     while True:
         
+        safety_counter +=1 # Counts up 1 each loop
+        
         if (T2_state == S1_data): # Collect Data & Run Closed Loop Controller
-            initialP = share_init_p.get() # Initial Pressure taken during initialization of PressureSensor Class
             
-            reader_p_value, temp_val = sensor_obj.readP_Raw() # Reads Raw P & T values
-            PWM, time_passed, measured_output = controller_obj2.run(reader_p_value) # Runs Closed-Loop Controller 
-            moe2.set_duty_cycle(-PWM) # Ajusts motor 2 postion 
+            if (safety_counter <= 450):
             
-            qTime.put(time_passed)       # stores time passed in queue to print 
-            qPos.put(measured_output)    # stores measured pressure [counts] in queue to print 
-            
-            # If Desired Pressure is Reached
-            if setpoint_raw-6 <= reader_p_value <= setpoint_raw+6: # Allowable range to consider "reaching" setpoint
-                print('REACHED SETPOINTT!!')
-                T2_state = 2 
-                key = 1
-            
-            # If System has been Returned to Initial Pressure
-            if (initialP-6 <= reader_p_value <= initialP+6) & key == 1: # Allowable range to consider "reaching" return pressure
-                moe2.set_duty_cycle(0) # turn motor off
-                PWM, time_passed, measured_output = controller_obj2.run(reader_p_value) 
-                qTime.put(time_passed)       # stores time passed in queue to print 
-                qPos.put(measured_output)    # stores measured pressure [counts] in queue to print l
-                final_counter += 1       
-                if final_counter == 20:      # collects 20 more data points at returned pressure
-                    T2_state = 4
+                initialP = share_init_p.get() # Initial Pressure taken during initialization of PressureSensor Class
                 
-        elif (T2_state == S2_off): # time with motor off, collecting data
+                reader_p_value, temp_val = sensor_obj.readP_Raw() # Reads Raw P & T values
+                PWM, time_passed, measured_output = controller_obj2.run(reader_p_value) # Runs Closed-Loop Controller 
+                moe2.set_duty_cycle(-PWM) # Ajusts motor 2 postion 
+                
+                qTime.put(time_passed)       # stores time passed in queue to print 
+                qPos.put(measured_output)    # stores measured pressure [counts] in queue to print 
+                
+                # If Desired Pressure is Reached
+                if setpoint_raw-6 <= reader_p_value <= setpoint_raw+6: # Allowable range to consider "reaching" setpoint
+                    print('REACHED SETPOINTT!!')
+                    T2_state = 2 
+                    key = 1
+                
+                # If System has been Returned to Initial Pressure
+                if (initialP-6 <= reader_p_value <= initialP+6) & key == 1: # Allowable range to consider "reaching" return pressure
+                    moe2.set_duty_cycle(0) # turn motor off
+                    PWM, time_passed, measured_output = controller_obj2.run(reader_p_value) 
+                    qTime.put(time_passed)       # stores time passed in queue to print 
+                    qPos.put(measured_output)    # stores measured pressure [counts] in queue to print l
+                    final_counter += 1       
+                    if final_counter == 20:      # collects 20 more data points at returned pressure
+                        T2_state = 4
+            elif (safety_counter > 40):
+                T2_state = 2
+                
+        elif (T2_state == S2_off): # time with motor off, collecting data b/c setpoint reached
             moe2.set_duty_cycle(0)
             PWM, time_passed, measured_output = controller_obj2.run(reader_p_value)
             qTime.put(time_passed)         # stores time passed in queue to print 
@@ -189,7 +197,7 @@ if __name__ == "__main__":
     # Run the scheduler with the chosen scheduling algorithm. Quit if ^C pressed
     while True:
         try:
-            #cotask.task_list.pri_sched() # uncomment if want to run on command
+            # cotask.task_list.pri_sched() # uncomment if want to run on command
         except KeyboardInterrupt:
             break
 

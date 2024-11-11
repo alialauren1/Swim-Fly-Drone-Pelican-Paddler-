@@ -79,8 +79,8 @@ def loop_example():
     # button will not be high until pressed
     
     print("in test loop")
-    moe.set_duty_cycle(-70) # + to close, - to open plunger (as in pull water in)
-    time.sleep(3)
+    moe.set_duty_cycle(70) # + to close, - to open plunger (as in pull water in)
+    time.sleep(1) # 46 for whole rack
     moe.set_duty_cycle(0)
     time.sleep(1)
             
