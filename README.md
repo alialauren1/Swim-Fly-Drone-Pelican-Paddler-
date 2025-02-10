@@ -18,18 +18,6 @@ for the system to achieve the desired weight to submerge the whole system.
 
 The gears were selected from McMaster. This is so in the future, they can be ordered parts. For now, we used the CAD files to 3D print them for budget reasons. While sizing and choosing the number of teeth we would need for our system, we calculated to torque that the motor needed to have to overcome the friction force between the piston and syringe.
 
-![pic 3](https://github.com/alialauren1/ME405-Term-Project/assets/157066050/dabea663-33ab-48a3-91b7-2d57c6a7cb01)
-
-Figure 1. CAD: Internal system of our terms project with labels indicating parts of the system.
-
-![PIC 4](https://github.com/alialauren1/ME405-Term-Project/assets/157066050/eb48edbe-51e1-428f-be92-7078a6765a94)
-
-Figure 2. CAD: Secondary view of the internal system of our terms project with labels indicating parts of the system.
-
-![Screenshot 2024-03-19 at 6 15 07 PM](https://github.com/alialauren1/ME405-Term-Project/assets/157066441/7a1a9980-e30d-4ffa-95b8-1a75b6fceadd)
-
-Figure 3. Gears, motor, and frame for the internal system.
-
 The pressure sensor we selected is the SSCMANV030PA2A3 Honeywell Pressure Sensor. It measures absolute pressure, with a range from 0-30 psi. Is allows liquid media on the port, which will come of use in future quarters when we test our system underwater. 
 
 <img width="182" alt="Screenshot 2024-03-19 at 8 53 00 PM" src="https://github.com/alialauren1/ME405-Term-Project/assets/157066441/83f965b6-e449-474c-9980-f4381207573f">
@@ -39,18 +27,6 @@ Figure 4. SSCMANV030PA2A3 Honeywell Pressure Sensor
 ![IMG_6037](https://github.com/alialauren1/ME405-Term-Project/assets/157066441/d11b0a8d-c261-4473-9286-de9a2c53cbf4)
 
 Figure 5. Hardware all connected
-
-![IMG_5986](https://github.com/alialauren1/ME405-Term-Project/assets/157066441/2dcb67c6-f8fc-4aed-8ba3-724c25d5ca32)
-
-Figure 6A. System Connected to Bottom of Drone Body - View 1
-
-![IMG_5952](https://github.com/alialauren1/ME405-Term-Project/assets/157066441/372ee37b-0d7c-4a9a-8496-3acea0664945)
-
-Figure 6B. System Connected to Bottom of Drone Body - View 2
-
-<img width="561" alt="Screenshot 2024-03-19 at 8 43 37 PM" src="https://github.com/alialauren1/ME405-Term-Project/assets/157066441/63960632-6290-4ac7-8c0b-4ce70331d5dc">
-
-Figure 7. Overall View of Drone Body with Chamber 
 
 ### Schematic
 
@@ -77,7 +53,7 @@ https://alialauren1.github.io/ME405-Term-Project/index.html#T_S_sec
 ## Testing and Results
 
 ### Preliminary
-Our senior project requires our chamber to be able to acheive at minimum, 5 ft depth. Calculations were run, shown below, to determine the pressure that coincides with a depth of 5 ft in water. Being a little under 16.5 psi, we decided to run initial tests at 16.5 psi.
+We want our chamber to be able to acheive at minimum, 5 ft depth. Calculations were run, shown below, to determine the pressure that coincides with a depth of 5 ft in water. Being a little under 16.5 psi, we decided to run initial tests at 16.5 psi.
 
 <img width="558" alt="Screenshot 2024-03-19 at 9 05 30 PM" src="https://github.com/alialauren1/ME405-Term-Project/assets/157066441/ff3288be-28b8-42c2-b472-b3d4093e939d">
 
@@ -110,34 +86,11 @@ The system also works at lower than atmosphere pressures. In the plot below, the
 
 Figure 11. Plot of Pressure vs Time inside the syringe with a setpoint of 13 [psi].  
 
-## What we have learned
-Designing this system taught us how important it is to design and test early. 
-Although most of the system was done with a reasonable amount of time, we were faced with issues causing the system to take longer to complete than anticipated.
-
-### 3D Printing
-While 3D printing gears and housing system for our project we learned that tolerances while creating parts is harder to achieve. When 3D printing the gears it was harder to align the gears causing the small gears to slip and not allowing for our system to be as efficient as it can be.
-
-Note: We are saving our used PLA parts to find a place to recycle them. 
-
-![Screenshot 2024-03-19 at 6 14 47 PM](https://github.com/alialauren1/ME405-Term-Project/assets/157066441/54fc154a-4143-4713-95bc-231fa4f20410)
-
-Figure 12. Collection of gears tested
-
 ### Software and Sensors
 We learned that the data being output from our pressure sensor was in counts. This led to the creation of a definition in our PressureSensor class to interpret the counts into a unit of measurement that could be easily interpretted, that being [psi]. Since our Closed-Loop Controller class uses the pressure sensor output in counts to correct for a desired pressure, an additional definition was made to interpret user desired setpoint input from [psi] to counts. 
 
 ## Safety
 Our project prioritizes user safety through thoughtful design considerations. By utilizing small gears, we have effectively reduced the risk of injuries to the user. Once the system has been fully assembled, all moving components and electrical elements will be enclosed and inaccessible to the user. This design ensures that users are protected from potential hazards during the system's operation.
-
-## Bugs and Future Work
-
-We would also like to fix our code in Task2 State 3 where there is a break in data collection between the chamber resting at a higher pressure and then returning to its original pressure. As shown on the plot in the "Lab Demo Results" section, there is a small duration of time in which no data is collected. That is state 3, whilst counter_s3 is between 1 and 3. We tried removing this portion and only having state 3 reset the setpoint to initial pressure in one count but it did not initially work and we have run out of time to work on the code. So, for now, there is that small time duration blip in the data.  
-
-In the future we would like to implement a third task into our main program that is a user interface for the pressure setpoint. 
-The user could select from a range of setpoint options and the system would adjust the pressure in the chamber accordingly. 
-This task would multitask with the other two tasks and allow for the user to input a setpoint whenever they want whilst the program runs. 
-
-We plan to build a larger waterproof chamber to encompass components similar to those used in project. This will allows us to test the systems depth control abilities in actual water. We look forward to the continuation of this project and appreciate all that it has taught us so far. 
 
 ## Additional files
 
