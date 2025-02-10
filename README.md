@@ -38,9 +38,6 @@ The power supply provides power to the motor. The power supply was set to 12V wi
 Figure 3. Schematic of components
 
 ## Software design
-The main program uses three classes inside two tasks that multitask with one another. A detailed description of the software design can be found on our doxygen main page linked here: 
-https://alialauren1.github.io/ME405-Term-Project/index.html#soft_org_sec
-
 To measure pressure, we used a Honeywell Board Mount Pressure Sensor, which uses I^2C communication. A class was made to use this sensor. Details on how the data was collected and process is linked below. Pressure Sensor: SSCMANV030PA2A3
 https://alialauren1.github.io/ME405-Term-Project/index.html#autotoc_md1
 
