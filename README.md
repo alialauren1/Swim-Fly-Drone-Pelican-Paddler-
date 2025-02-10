@@ -4,7 +4,7 @@ This project entails constructing a submersible chamber capable of reaching
 specified depths. The system will operate in a closed loop, actuating until it 
 reaches a desired pressure depth.
 
-This project was proposed to Dr. Ghalamchi to be a senior project, where worked together to set the goal of improving previous tests on waterproof drones that can take off from underwater to allow for a drone that can float on top of the water surface as well as have added support to be pushed up from underwater. The new design needs to be detachable from the built waterproof drone to compare its new features in tests. The detacheable buoyancy control device was successfully tested at the end of the senior porject course. However, there is still work to do for aerial flight and thus testing of the whole system together. THis is now a continued research project between Alia Wolken and Dr. Ghalamchi. 
+This project was proposed to Dr. Ghalamchi to be a senior project, where worked together to set the goal of improving previous tests on waterproof drones that can take off from underwater to allow for a drone that can float on top of the water surface as well as have added support to be pushed up from underwater. The new design needs to be detachable from the built waterproof drone to compare its new features in tests. The detacheable buoyancy control device was successfully tested at the end of the senior porject course. However, there is still work to do for aerial flight and thus testing of the whole system together. This is now a continued research project between Alia Wolken and Dr. Ghalamchi. 
 
 "How it works" for Buoyancy Control Device:
 Pressure can be directly correlated to depth, given a liquid's density.
