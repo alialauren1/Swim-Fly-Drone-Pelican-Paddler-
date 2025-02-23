@@ -46,6 +46,13 @@ Figure 4. Pins PB_10, PB_4, and PB_5 were used to connect to the motor driver
 
 Figure 5. L298N Motor Drive Controller Board
 
+Connections from the motor driver to other components:
+IN3 - Blue Wire - D4 on board, PB_5
+IN4 - Orange Wire - D5 on board, PB_4
+ENA - Yellow Wire - D6 on board, PB_10 in software
+OUT3 to DC Motor Wire 1  
+OUT4 to DC Motor Wire 2 
+
 ## Software design
 To measure pressure, we used a Honeywell Board Mount Pressure Sensor, which uses I^2C communication. A class was made to use this sensor. Details on how the data was collected and process is linked below. Pressure Sensor: SSCMANV030PA2A3
 https://alialauren1.github.io/ME405-Term-Project/index.html#autotoc_md1
@@ -67,7 +74,7 @@ In order to test our project sensors and motor control, we ran multiple tests in
 
 <img width="605" alt="Screenshot 2024-03-17 at 10 32 32 PM" src="https://github.com/alialauren1/ME405-Term-Project/assets/157066441/ac451cf5-9cc9-4dc5-884a-5c23263242ac">
 
-Figure 9. Plot of Pressure vs Time inside the syringe. Each line represents a different run of data collected while altering the Kp value.
+Figure 6. Plot of Pressure vs Time inside the syringe. Each line represents a different run of data collected while altering the Kp value.
 
 During our testing, we initially set Kp to 5 (shown in blue) and then increased it to 10 (shown in orange). Observing the graph, it's evident that increasing the Kp value led to faster attainment of the target pressure of 16.5 [psi].
 
@@ -80,7 +87,7 @@ The below plot shows the pressure inside the syringe. The autonomous journey is 
 
 <img width="360" alt="image" src="https://github.com/alialauren1/ME405-Term-Project/assets/157066441/75d0b395-c743-4855-a188-f06f3c17799e">
 
-Figure 4. Plot of Pressure vs Time inside the syringe with a setpoint of 17 [psi].  
+Figure 7. Plot of Pressure vs Time inside the syringe with a setpoint of 17 [psi].  
 
 This journey mimics future developement of our larger senior project in which this pressure chamber will be attached to a drone. We anticipate it will be beneficial for some remote or signal to send a desired depth as the setpoint to the system, in which the chamber will submerge with the drone, going to that depth. It will remain there, possible to collect data, and then autonomously return to the surface. 
 We are satisfied with the final results. The chamber is able to reach pressures higher than a pressure corresponding to 5ft, which was what we wanted to achieve.
@@ -90,7 +97,7 @@ The system also works at lower than atmosphere pressures. In the plot below, the
 
 <img width="349" alt="Screenshot 2024-03-19 at 8 38 33 PM" src="https://github.com/alialauren1/ME405-Term-Project/assets/157066441/a8d9b7e9-7423-4f52-975f-87fc786d1f34">
 
-Figure 5. Plot of Pressure vs Time inside the syringe with a setpoint of 13 [psi].  
+Figure 8. Plot of Pressure vs Time inside the syringe with a setpoint of 13 [psi].  
 
 ### Software and Sensors
 We learned that the data being output from our pressure sensor was in counts. This led to the creation of a definition in our PressureSensor class to interpret the counts into a unit of measurement that could be easily interpretted, that being [psi]. Since our Closed-Loop Controller class uses the pressure sensor output in counts to correct for a desired pressure, an additional definition was made to interpret user desired setpoint input from [psi] to counts. 
