@@ -47,11 +47,17 @@ Figure 4. Pins PB_10, PB_4, and PB_5 were used to connect to the motor driver
 Figure 5. L298N Motor Drive Controller Board
 
 Connections from the motor driver to other components:
+
 IN3 - Blue Wire - D4 on board, PB_5
+
 IN4 - Orange Wire - D5 on board, PB_4
+
 ENA - Yellow Wire - D6 on board, PB_10 in software
+
 OUT3 to DC Motor Wire 1  
+
 OUT4 to DC Motor Wire 2 
+
 
 ## Software design
 To measure pressure, we used a Honeywell Board Mount Pressure Sensor, which uses I^2C communication. A class was made to use this sensor. Details on how the data was collected and process is linked below. Pressure Sensor: SSCMANV030PA2A3
