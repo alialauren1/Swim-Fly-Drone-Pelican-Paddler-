@@ -12,6 +12,15 @@ Pressure can be directly correlated to depth, given a liquid's density.
    pressurize a chamber to the setpoint. It waits a period of time, as if it were underwater collecting data,
    and then returns to the initial pressure, as if it were returning to the water surface. 
 
+### Schematic
+
+The schematic below shows a very general diagram of how components are being powered and communicating with one another. 
+The power supply provides power to the motor. The power supply was set to 12V with a 0.5 A current limit. 
+
+<img width="355" alt="Schematic" src="https://github.com/alialauren1/ME405-Term-Project/assets/157066441/69f9537e-9c2f-4ec5-904a-f615c2763568">
+
+Figure 1. Schematic of components
+
 ## Hardware design
 We have integrated Ametck Pittman's PG6712A077-R3 motor to a 50 CC syringe. Utilizing this motor, we've have attached a worm gear and gears to ensure sufficient torque to be generated. These gears are attached to a pinion and aligned with a rack that allows for the syringe to be moved back and forth. This allows
 for the system to achieve the desired weight to submerge the whole system.
@@ -22,24 +31,20 @@ The pressure sensor we selected is the SSCMANV030PA2A3 Honeywell Pressure Sensor
 
 <img width="182" alt="Screenshot 2024-03-19 at 8 53 00 PM" src="https://github.com/alialauren1/ME405-Term-Project/assets/157066441/83f965b6-e449-474c-9980-f4381207573f">
 
-Figure 1. SSCMANV030PA2A3 Honeywell Pressure Sensor
+Figure 2. SSCMANV030PA2A3 Honeywell Pressure Sensor
 
 <img width="697" alt="Screenshot 2025-02-22 at 9 59 54 PM" src="https://github.com/user-attachments/assets/607a9807-954a-4623-b921-8044b39f7e3f" />
 
-Figure 2. Hardware all connected
-
-### Schematic
-
-The schematic below shows a very general diagram of how components are being powered and communicating with one another. 
-The power supply provides power to the motor. The power supply was set to 12V with a 0.5 A current limit. 
-
-<img width="355" alt="Schematic" src="https://github.com/alialauren1/ME405-Term-Project/assets/157066441/69f9537e-9c2f-4ec5-904a-f615c2763568">
-
-Figure 3A. Schematic of components
+Figure 3. Hardware all connected
 
 <img width="690" alt="Screenshot 2025-02-22 at 9 46 14 PM" src="https://github.com/user-attachments/assets/02b90a8d-7c07-4a28-bb6b-b3a3a456d631" />
 
-Figure 3B. Pins PB_10, PB_4, and PB_5 were used to connect to the motor driver
+Figure 4. Pins PB_10, PB_4, and PB_5 were used to connect to the motor driver
+
+<img width="368" alt="Screenshot 2025-02-22 at 10 02 44 PM" src="https://github.com/user-attachments/assets/91c40f9c-172e-48d8-98d4-8ed98caa694d" />
+<img width="409" alt="Screenshot 2025-02-22 at 10 02 55 PM" src="https://github.com/user-attachments/assets/df3ba265-2767-4cb6-bf9b-52eb32e00a57" />
+
+Figure 5. L298N Motor Drive Controller Board
 
 ## Software design
 To measure pressure, we used a Honeywell Board Mount Pressure Sensor, which uses I^2C communication. A class was made to use this sensor. Details on how the data was collected and process is linked below. Pressure Sensor: SSCMANV030PA2A3
