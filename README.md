@@ -35,7 +35,11 @@ The power supply provides power to the motor. The power supply was set to 12V wi
 
 <img width="355" alt="Schematic" src="https://github.com/alialauren1/ME405-Term-Project/assets/157066441/69f9537e-9c2f-4ec5-904a-f615c2763568">
 
-Figure 3. Schematic of components
+Figure 3A. Schematic of components
+
+<img width="690" alt="Screenshot 2025-02-22 at 9 46 14 PM" src="https://github.com/user-attachments/assets/02b90a8d-7c07-4a28-bb6b-b3a3a456d631" />
+
+Figure 3B. Pins PB_10, PB_4, and PB_5 were used to connect to the motor driver
 
 ## Software design
 To measure pressure, we used a Honeywell Board Mount Pressure Sensor, which uses I^2C communication. A class was made to use this sensor. Details on how the data was collected and process is linked below. Pressure Sensor: SSCMANV030PA2A3
