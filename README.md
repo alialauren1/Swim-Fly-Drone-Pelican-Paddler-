@@ -24,7 +24,7 @@ The pressure sensor we selected is the SSCMANV030PA2A3 Honeywell Pressure Sensor
 
 Figure 1. SSCMANV030PA2A3 Honeywell Pressure Sensor
 
-![IMG_6037](https://github.com/alialauren1/ME405-Term-Project/assets/157066441/d11b0a8d-c261-4473-9286-de9a2c53cbf4)
+<img width="697" alt="Screenshot 2025-02-22 at 9 59 54 PM" src="https://github.com/user-attachments/assets/607a9807-954a-4623-b921-8044b39f7e3f" />
 
 Figure 2. Hardware all connected
 
