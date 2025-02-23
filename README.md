@@ -33,11 +33,11 @@ The pressure sensor we selected is the SSCMANV030PA2A3 Honeywell Pressure Sensor
 
 Figure 2. SSCMANV030PA2A3 Honeywell Pressure Sensor
 
-<img width="697" alt="Screenshot 2025-02-22 at 9 59 54 PM" src="https://github.com/user-attachments/assets/607a9807-954a-4623-b921-8044b39f7e3f" />
+<img width="600" alt="Screenshot 2025-02-22 at 9 59 54 PM" src="https://github.com/user-attachments/assets/607a9807-954a-4623-b921-8044b39f7e3f" />
 
 Figure 3. Hardware all connected
 
-<img width="690" alt="Screenshot 2025-02-22 at 9 46 14 PM" src="https://github.com/user-attachments/assets/02b90a8d-7c07-4a28-bb6b-b3a3a456d631" />
+<img width="300" alt="Screenshot 2025-02-22 at 9 46 14 PM" src="https://github.com/user-attachments/assets/02b90a8d-7c07-4a28-bb6b-b3a3a456d631" />
 
 Figure 4. Pins PB_10, PB_4, and PB_5 were used to connect to the motor driver
 
