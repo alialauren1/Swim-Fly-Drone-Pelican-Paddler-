@@ -41,8 +41,8 @@ Figure 3. Hardware all connected
 
 Figure 4. Pins PB_10, PB_4, and PB_5 were used to connect to the motor driver
 
-<img width="409" alt="Screenshot 2025-02-22 at 10 02 55 PM" src="https://github.com/user-attachments/assets/df3ba265-2767-4cb6-bf9b-52eb32e00a57" />
-<img width="630" alt="Screenshot 2025-02-22 at 10 06 25 PM" src="https://github.com/user-attachments/assets/f82fd787-0ccb-491e-81ad-ba0356ab97e5" />
+<img width="309" alt="Screenshot 2025-02-22 at 10 02 55 PM" src="https://github.com/user-attachments/assets/df3ba265-2767-4cb6-bf9b-52eb32e00a57" />
+<img width="309" alt="Screenshot 2025-02-22 at 10 06 25 PM" src="https://github.com/user-attachments/assets/f82fd787-0ccb-491e-81ad-ba0356ab97e5" />
 
 Figure 5. L298N Motor Drive Controller Board
 
